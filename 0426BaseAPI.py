@@ -34,7 +34,7 @@ def main():
         # 在汽车上加传感器, 如相机和雷达
         # 相机
         camera_bp = blueprint_library.find('sensor.camera.rgb')
-        camera_transform = carla.Transform(carla.Location(x=1.5,y=2.4))
+        camera_transform = carla.Transform(carla.Location(x=1.5,z=2.4))
         camera = world.spawn_actor(camera_bp, camera_transform, attach_to=ego_vehicle)
         # 回传数据
         camera.listen(lambda image: image.save_to_disk(os.path.join('C:\carla\PythonAPI\mytest\0426\camera_data','%06d.png' %image.frame)))
