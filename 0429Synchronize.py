@@ -64,7 +64,7 @@ def main():
 
         # 生成camera
         camera_bp = blueprint_library.find('sensor.camera.rgb')
-        camera_transform = carla.Transform(carla.Location(x=1.5, y=2.4))
+        camera_transform = carla.Transform(carla.Location(x=1.5, z=2.4))
         camera = world.spawn_actor(camera_bp, camera_transform, attach_to=ego_vehicle)
         camera.listen(lambda image: sensor_callback(image, sensor_queue, 'camera'))
         sensor_list.append(camera)
